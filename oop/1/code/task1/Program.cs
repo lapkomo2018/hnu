@@ -6,13 +6,16 @@ class Task1 {
     
     static void Main() {
         Console.WriteLine("Input m: ");
-        double m = double.Parse(Console.ReadLine());
+        double m;
+        double.TryParse(Console.ReadLine(), out m);
     
         Console.WriteLine("Input h: ");
-        double h = double.Parse(Console.ReadLine());
+        double h;
+        double.TryParse(Console.ReadLine(), out h);
     
         Console.WriteLine("Input v: ");
-        double v = double.Parse(Console.ReadLine());
+        double v;
+        double.TryParse(Console.ReadLine(), out v);
     
         Console.WriteLine($"m: {m}; h: {h}; v: {v}");
         Console.WriteLine($"E: {E(m,v)}\nP: {P(m,h)}");
