@@ -1,6 +1,4 @@
-﻿using System.Net;
-
-namespace Task2;
+﻿namespace Task2;
 
 class Task2 {
     static double V(double x, int i) {
