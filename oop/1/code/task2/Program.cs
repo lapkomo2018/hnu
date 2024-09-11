@@ -1,6 +1,6 @@
 ﻿namespace Task2;
 
-class Task2 {
+class Program {
     static double V(double x, int i) {
         double a = InputDouble("Input a: "), b = InputDouble("Input b: ");
         return Math.Tan(x / i + a) - Math.Log10(Math.Abs(b * i + 7));
