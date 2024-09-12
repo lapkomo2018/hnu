@@ -1,7 +1,7 @@
 .vscode
 .idea
 .tmp
-~*.*
+*~*.*
 
 [Dd]ebug/
 [Rr]elease/
