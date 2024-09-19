@@ -1,0 +1,35 @@
+@startuml
+actor User
+actor Admin
+
+rectangle "SocialNetwork" {
+    rectangle "UserAccount" as UA
+    rectangle "Post" as P
+    rectangle "Report" as R
+    rectangle "AdminPanel" as AP
+
+    User --> UA : register()
+    User --> UA : login()
+    UA --> P : createPost()
+    UA --> P : editPost()
+    UA --> P : deletePost()
+    UA --> P : likePost()
+    UA --> P : viewPost()
+    UA --> R : reportPost()
+
+    R --> AP : notifyAdmin()
+
+    Admin --> AP : moderateReports()
+    Admin --> P : editPost()
+    Admin --> P : deletePost()
+    Admin --> UA : banUser()
+    Admin --> UA : deleteUserAccount()
+    
+    UA --> UA : changeProfile()
+    UA --> UA : deleteAccount()
+    
+    User --> UA : searchUsers()
+    User --> P : searchPostsByTag()
+}
+
+@enduml

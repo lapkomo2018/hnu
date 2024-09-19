@@ -1,0 +1,23 @@
+@startuml
+[*] --> Draft : Create Post
+
+state Draft {
+  [*] --> Drafting
+  Drafting : Entry / Start writing
+  Drafting --> Published : [Post Complete] Publish
+}
+
+Published --> Reported : Report Post
+Reported --> Moderated : Admin Reviews Report
+
+state Moderated {
+  [*] --> Reviewing
+  Reviewing --> Edited : [Rules Violated] Admin Edits Post
+  Reviewing --> Deleted : [Severe Violation] Admin Deletes Post
+  Reviewing --> Published : [No Violation] Post Remains
+}
+
+Edited --> Published : Republish Post
+
+Deleted --> [*] : Post Removed
+@enduml

@@ -1,0 +1,24 @@
+@startuml
+start
+:User Logs In;
+if (Is Logged In?) then (Yes)
+  :Access JWT Token;
+else (No)
+  :Show Login Error;
+endif
+:User Views Posts;
+:User Creates Post;
+:Post Stored in Database;
+if (Is Post Reported?) then (Yes)
+  :Notify Admin;
+  :Admin Reviews Report;
+  if (Post Violates Rules?) then (Yes)
+    :Admin Edits or Deletes Post;
+  else (No)
+    :Post Stays Published;
+  endif
+else (No)
+  :Post Remains Published;
+endif
+stop
+@enduml
