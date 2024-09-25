@@ -1,6 +1,5 @@
 @startuml
 actor User
-actor Admin
 boundary SocialNetwork
 
 User -> SocialNetwork : Sign Up
@@ -16,9 +15,5 @@ User -> SocialNetwork : View Posts
 SocialNetwork -> User : Display Posts
 
 User -> SocialNetwork : Report Post
-SocialNetwork -> Admin : Notify Admin of Report
-
-Admin -> SocialNetwork : Moderate Report
-SocialNetwork -> Admin : Post Moderated (Delete/Edit)
 
 @enduml

@@ -1,21 +1,22 @@
 @startuml
-object Admin
-object AdminPanel
-object Backend
+actor Admin
+boundary AdminPanel
+boundary Backend
 
 Admin -> AdminPanel : Log In
 AdminPanel -> Backend : Authenticate Admin
+Backend -> AdminPanel : JWT Token
 
 Admin -> AdminPanel : View Reports
 AdminPanel -> Backend : Fetch Reports
 
-Admin -> AdminPanel : Moderate Report (Edit/Delete Post)
+Admin -> AdminPanel : Moderate Report (Delete/Edit Post)
 AdminPanel -> Backend : Update/Delete Post
 
 Admin -> AdminPanel : Manage User Roles
-AdminPanel -> Backend : Update Roles
+AdminPanel -> Backend : Update User Roles
 
 Admin -> AdminPanel : Ban User
-AdminPanel -> Backend : Update User Status
+AdminPanel -> Backend : Update User Status (Ban)
 
 @enduml

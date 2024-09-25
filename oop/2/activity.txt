@@ -1,24 +1,22 @@
 @startuml
 start
-:User Logs In;
-if (Is Logged In?) then (Yes)
-  :Access JWT Token;
+:Admin Logs In;
+:Authenticate Admin through Backend;
+if (Is Authentication Successful?) then (Yes)
+  :Access Admin Dashboard;
 else (No)
   :Show Login Error;
 endif
-:User Views Posts;
-:User Creates Post;
-:Post Stored in Database;
-if (Is Post Reported?) then (Yes)
-  :Notify Admin;
-  :Admin Reviews Report;
-  if (Post Violates Rules?) then (Yes)
-    :Admin Edits or Deletes Post;
-  else (No)
-    :Post Stays Published;
-  endif
+:Admin Views Reports;
+:Admin Selects Reported Post;
+if (Action Needed?) then (Yes)
+  :Admin Deletes/Edits Post;
+  :Send Update to Backend;
 else (No)
-  :Post Remains Published;
+  :Mark Report as Reviewed;
 endif
+:Admin Manages User Roles;
+:Admin Bans Users (if necessary);
+:Send Updates to Backend;
 stop
 @enduml
