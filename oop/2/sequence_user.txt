@@ -1,19 +1,21 @@
-@startuml
-actor User
-boundary SocialNetwork
+    @startuml
+    actor User
+    boundary AuthService
+    boundary PostService
+    boundary ReportService
 
-User -> SocialNetwork : Sign Up
-SocialNetwork -> User : Confirmation
+    User -> AuthService : Sign Up
+    AuthService -> User : Confirmation
 
-User -> SocialNetwork : Log In
-SocialNetwork -> User : JWT Token
+    User -> AuthService : Log In
+    AuthService -> User : JWT Token
 
-User -> SocialNetwork : Create Post
-SocialNetwork -> User : Post Confirmation
+    User -> PostService : Create Post
+    PostService -> User : Post Confirmation
 
-User -> SocialNetwork : View Posts
-SocialNetwork -> User : Display Posts
+    User -> PostService : View Posts
+    PostService -> User : Display Posts
 
-User -> SocialNetwork : Report Post
+    User -> ReportService : Report Post
 
-@enduml
+    @enduml
