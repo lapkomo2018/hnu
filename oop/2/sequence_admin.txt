@@ -1,22 +1,25 @@
 @startuml
 actor Admin
 boundary AdminPanel
-boundary Backend
+boundary AuthService
+boundary ReportService
+boundary PostService
+boundary UserService
 
 Admin -> AdminPanel : Log In
-AdminPanel -> Backend : Authenticate Admin
-Backend -> AdminPanel : JWT Token
+AdminPanel -> AuthService : Authenticate Admin
+AuthService -> AdminPanel : JWT Token
 
 Admin -> AdminPanel : View Reports
-AdminPanel -> Backend : Fetch Reports
+AdminPanel -> ReportService : Fetch Reports
 
 Admin -> AdminPanel : Moderate Report (Delete/Edit Post)
-AdminPanel -> Backend : Update/Delete Post
+AdminPanel -> PostService : Update/Delete Post
 
 Admin -> AdminPanel : Manage User Roles
-AdminPanel -> Backend : Update User Roles
+AdminPanel -> UserService : Update User Roles
 
 Admin -> AdminPanel : Ban User
-AdminPanel -> Backend : Update User Status (Ban)
+AdminPanel -> UserService : Update User Status (Ban)
 
 @enduml
